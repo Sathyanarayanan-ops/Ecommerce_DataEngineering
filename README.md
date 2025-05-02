@@ -14,6 +14,24 @@ npm run dev on one cli in /frontend
 uvicorn backend.main:app --reload from another cli /backend
 
 
+Setup Tommy Went Through
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install -r requirements.txt
+pip3 install "fastapi[standard]"
+cd ../frontend
+npm i
+npm run dev
+new terminal
+cd backend
+source .venv/bin/activate
+uvicorn main:app --reload
+new terminal
+sqlite3 purchases.db
+select * from purchases;
+make purchases on frontend and run query again
+
 
 Phase 1 :
 
@@ -21,6 +39,7 @@ Setup Kafka to stream continuous live data , using data set or live traffic from
 Verify data flow from kafka 
 EDA using data from Kafka
 Set up live log for traffic activity - TBD 
+
 
 
 
