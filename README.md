@@ -1,6 +1,18 @@
 # Ecommerce_DataEngineering
 Pipeline to monitor live customer insights using Kafka , process data using Spark 
 
+Clone the repo using one of the branches, do not use master branch 
+
+After cloning , go to /frontend and do npm i 
+
+Go to /backend and do pip install -r requirements.txt
+
+Try running the app 
+
+npm run dev on one cli in /frontend
+  
+uvicorn backend.main:app --reload from another cli /backend
+
 
 
 Phase 1 :
@@ -9,6 +21,10 @@ Setup Kafka to stream continuous live data , using data set or live traffic from
 Verify data flow from kafka 
 EDA using data from Kafka
 Set up live log for traffic activity - TBD 
+
+
+
+
 
 Phase 2 :
 Set up spark streaming to process live data from Kafka 
