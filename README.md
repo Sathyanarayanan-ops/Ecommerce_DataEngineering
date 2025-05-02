@@ -14,24 +14,25 @@ npm run dev on one cli in /frontend
 uvicorn backend.main:app --reload from another cli /backend
 
 
-Setup Tommy Went Through
-cd backend
-python3 -m venv .venv
-source .venv/bin/activate
-pip3 install -r requirements.txt
-pip3 install "fastapi[standard]"
-cd ../frontend
-npm i
-npm run dev
-new terminal
-cd backend
-source .venv/bin/activate
-uvicorn main:app --reload
-new terminal
-sqlite3 purchases.db
-select * from purchases;
-make purchases on frontend and run query again
-
+Setup Tommy Went Through<br/>
+cd backend<br/>
+python3 -m venv .venv<br/>
+source .venv/bin/activate<br/>
+pip3 install -r requirements.txt<br/>
+pip3 install "fastapi[standard]"<br/>
+cd ../frontend<br/>
+npm i<br/>
+npm run dev<br/>
+new terminal<br/>
+cd backend<br/>
+source .venv/bin/activate<br/>
+uvicorn main:app --reload<br/>
+new terminal<br/>
+cd backend<br/>
+source .venv/bin/activate<br/>
+python3 producer.py<br/>
+make purchases on frontend and watch it update in the terminal where producer.py ran<br/>
+Currently does not actually utilize the kafka producer, awaiting setup for kafka brokers (zookeeper or KRaft mode)
 
 Phase 1 :
 
