@@ -14,6 +14,7 @@ import Stack from '@mui/material/Stack';
 import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import { ThemeProvider,createTheme } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -57,12 +58,14 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
   },
 }));
 
-export default function SignIn(props) {
+export default function SignIn({onLogin}) {
   const [emailError, setEmailError] = React.useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
   const [open, setOpen] = React.useState(false);
+  const [email,setEmail] = React.useState('');
+  const navigate = useNavigate();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -74,21 +77,16 @@ export default function SignIn(props) {
 
   const defaultTheme = createTheme();
 
-  const handleSubmit = (event) => {
-    if (emailError || passwordError) {
-      event.preventDefault();
-      return;
-    }
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //  validate here...
+    onLogin(email);       // lift email up to App
+    navigate('/', { replace: true });  // go to home
   };
 
   const validateInputs = () => {
     const email = document.getElementById('email');
-    const password = document.getElementById('password');
+    // const password = document.getElementById('password');
 
     let isValid = true;
 
@@ -99,15 +97,6 @@ export default function SignIn(props) {
     } else {
       setEmailError(false);
       setEmailErrorMessage('');
-    }
-
-    if (!password.value || password.value.length < 6) {
-      setPasswordError(true);
-      setPasswordErrorMessage('Password must be at least 6 characters long.');
-      isValid = false;
-    } else {
-      setPasswordError(false);
-      setPasswordErrorMessage('');
     }
 
     return isValid;
@@ -154,6 +143,8 @@ export default function SignIn(props) {
                 fullWidth
                 variant="outlined"
                 color={emailError ? 'error' : 'primary'}
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
             </FormControl>
             {/* <FormControl>
