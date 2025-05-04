@@ -29,6 +29,7 @@ source .venv/bin/activate<br/>
 pip3 install -r requirements.txt<br/>
 pip3 install "fastapi[standard]"<br/>
 uvicorn main:app --reload<br/>
+#Test
 
 Backend 2<br/>
 https://kafka.apache.org/downloads version 4.0.0 binary move to backend and unzip <br/>
