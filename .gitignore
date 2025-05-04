@@ -194,3 +194,5 @@ sketch
 
 .vite
 backend/purchases.db
+
+backend/kafka_2.13-4.0.0
