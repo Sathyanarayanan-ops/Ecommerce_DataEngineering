@@ -35,3 +35,4 @@ def send_to_kafka():
         time.sleep(4)  # Batch every 4 seconds
 
 send_to_kafka()
+

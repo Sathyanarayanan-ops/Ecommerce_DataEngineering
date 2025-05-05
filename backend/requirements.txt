@@ -3,3 +3,5 @@ uvicorn
 sqlalchemy
 pydantic
 kafka-python
+pyspark==3.5.2
+py4j

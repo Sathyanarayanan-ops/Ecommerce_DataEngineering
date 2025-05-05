@@ -29,7 +29,7 @@ source .venv/bin/activate<br/>
 pip3 install -r requirements.txt<br/>
 pip3 install "fastapi[standard]"<br/>
 uvicorn main:app --reload<br/>
-
+#test2
 Backend 2<br/>
 https://kafka.apache.org/downloads version 4.0.0 binary move to backend and unzip <br/>
 **Run the single following command only once!!!<br/>
@@ -51,29 +51,21 @@ make purchases on frontend and watch it update in the terminal where consumer.py
 
 Currently does not actually utilize the kafka producer, awaiting setup for kafka brokers (zookeeper or KRaft mode)
 
-Phase 1 :
 
-Setup Kafka to stream continuous live data , using data set or live traffic from website
-Verify data flow from kafka 
-EDA using data from Kafka
-Set up live log for traffic activity - TBD 
+--------------------------------------------------------
 
 
+Spark set up -- shoaib 
+
+pip install requirements 
+
+
+run command 
+spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.1 sparkconsumer.py
+
+To run the spark job 
 
 
 
-
-Phase 2 :
-Set up spark streaming to process live data from Kafka 
-Build pipeline to get insights from live data
-Build core logic behind pipeline - Identify demand in product , set up threshold for product , set up threshold for price surge 
-Implement price surge - Use scheduler to send notifications regarding price surge , set up cool down time for price surge (manually)
-
-Phase 3 :
-Store data regarding price surge and general data for historical analysis
-Testing with live data 
-
-Phase 4:
-Identify scope for ML implementation 
 
 --

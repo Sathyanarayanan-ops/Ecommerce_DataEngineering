@@ -196,3 +196,4 @@ sketch
 backend/purchases.db
 
 backend/kafka_2.13-4.0.0
+/kafka_2.13-4.0.0
