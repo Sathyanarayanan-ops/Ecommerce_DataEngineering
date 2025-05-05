@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String, DateTime, Float
 from datetime import datetime
 from database import Base
 
@@ -9,3 +9,6 @@ class Purchase(Base):
     email = Column(String, index=True)
     product_id = Column(Integer)
     timestamp = Column(DateTime, default=datetime.utcnow)
+    base_price = Column(Float)
+    surge_price = Column(Float)
+    
