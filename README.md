@@ -132,4 +132,37 @@ spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.1 sparkco
 
 ---
 
+```
++--------------------+       +--------------------+       +--------------------+
+|                    |       |                    |       |                    |
+|    React Frontend  |       |    FastAPI Backend |       |   Kafka Producer   |
+|  (User Interactions) | --> |  (API & SQLite DB) | --> |  (Publishes Events) |
+|                    |       |                    |       |                    |
++--------------------+       +--------------------+       +--------------------+
+                                                              |
+                                                              v
+                                                     +--------------------+
+                                                     |                    |
+                                                     |   Kafka Broker     |
+                                                     |  (KRaft Mode)      |
+                                                     |                    |
+                                                     +--------------------+
+                                                              |
+                                                              v
++--------------------+       +--------------------+       +--------------------+
+|                    |       |                    |       |                    |
+| Kafka Consumer     |       |   Spark Streaming  |       |   SQLite Database  |
+| (Surge Pricing Logic) | --> |  (Real-time Analytics) | --> |  (Updated Prices)  |
+|                    |       |                    |       |                    |
++--------------------+       +--------------------+       +--------------------+
+                                                              |
+                                                              v
+                                                     +--------------------+
+                                                     |                    |
+                                                     | React Frontend     |
+                                                     | (Updated UI)       |
+                                                     |                    |
+                                                     +--------------------+
+
+```
 
