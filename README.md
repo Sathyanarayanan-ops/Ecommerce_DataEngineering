@@ -1,5 +1,3 @@
-Here’s a polished and structured `README.md` for your `Ecommerce_DataEngineering` project that clearly explains setup, usage, and context:
-
 ---
 
 # 🛒 Ecommerce Data Engineering Pipeline
