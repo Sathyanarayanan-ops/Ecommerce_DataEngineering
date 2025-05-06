@@ -1,71 +1,135 @@
-# Ecommerce_DataEngineering
-Pipeline to monitor live customer insights using Kafka , process data using Spark 
+Here’s a polished and structured `README.md` for your `Ecommerce_DataEngineering` project that clearly explains setup, usage, and context:
 
-Clone the repo using one of the branches, do not use master branch 
+---
 
-After cloning , go to /frontend and do npm i 
+# 🛒 Ecommerce Data Engineering Pipeline
 
-Go to /backend and do pip install -r requirements.txt
+Real-time customer insights pipeline using **Kafka**, **Apache Spark**, **FastAPI**, and **React**. This project demonstrates a full-stack streaming architecture where user purchase behavior on the frontend triggers backend processing, updates a SQLite database, and adjusts product pricing dynamically.
 
-Try running the app 
+---
 
-npm run dev on one cli in /frontend
-  
-uvicorn backend.main:app --reload from another cli /backend
+## 📦 Features
 
+* ⚡ Live data ingestion using **Kafka**
+* 🔄 Real-time data processing via **Apache Spark**
+* 🔥 Dynamic surge pricing based on demand
+* 🧾 FastAPI backend with SQLite storage
+* 🛍️ React-based frontend for product interaction
+* 🧪 Pluggable with consumer-producer model for streaming
 
-Setup Tommy Went Through<br/>
-You will need 5 terminal total: 1 in frontend, 4 in backend
-Frontend 1<br/>
-cd frontend<br/>
-npm i<br/>
-npm run dev<br/>
+---
 
-Backend 1<br/>
-Note: Virtual Environment may not be necesasry but can help streamline package installations
-cd backend<br/>
-python3 -m venv .venv<br/>
-source .venv/bin/activate<br/>
-pip3 install -r requirements.txt<br/>
-pip3 install "fastapi[standard]"<br/>
-uvicorn main:app --reload<br/>
-#test2
-Backend 2<br/>
-https://kafka.apache.org/downloads version 4.0.0 binary move to backend and unzip <br/>
-**Run the single following command only once!!!<br/>
-bin/kafka-storage.sh format --standalone -t $(uuidgen) -c config/server.properties <br/><br/>
-bin/kafka-server-start.sh config/server.properties <br/>
+## 🚀 Quickstart Guide
 
-Backend 3<br/>
-cd backend<br/>
-source .venv/bin/activate<br/>
-python3 producer.py<br/>
-make purchases on frontend and watch it update in the terminal where producer.py ran<br/>
+### ⚠️ Use Only Feature Branches
 
-Backend 3<br/>
-cd backend<br/>
-source .venv/bin/activate<br/>
-python3 consumer.py<br/>
-make purchases on frontend and watch it update in the terminal where consumer.py ran this is where price surges are handled<br/>
+> **Do NOT use the `master` branch.** Clone one of the feature branches to get started.
 
+```bash
+git clone -b <feature-branch-name> https://github.com/Sathyanarayanan-ops/Ecommerce_DataEngineering.git
+cd Ecommerce_DataEngineering
+```
 
-Currently does not actually utilize the kafka producer, awaiting setup for kafka brokers (zookeeper or KRaft mode)
+---
 
+## 🖥️ Frontend Setup
 
---------------------------------------------------------
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
+Runs on `http://localhost:3000`
 
-Spark set up -- shoaib 
+---
 
-pip install requirements 
+## 🧠 Backend Setup
 
+### Terminal 1: FastAPI App
 
-run command 
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install "fastapi[standard]"
+uvicorn main:app --reload
+```
+
+Runs on `http://localhost:8000`
+
+---
+
+## 🔄 Kafka Setup (KRaft mode - no Zookeeper)
+
+### Terminal 2: Kafka Server
+
+1. Download Kafka 4.0.0 and move it into the `backend/` folder.
+2. Unzip it.
+
+```bash
+cd backend/kafka_2.13-4.0.0
+# Run this only once
+bin/kafka-storage.sh format --standalone -t $(uuidgen) -c config/server.properties
+# Start Kafka server
+bin/kafka-server-start.sh config/server.properties
+```
+
+---
+
+## 🧾 Data Stream Processing
+
+### Terminal 3: Kafka Producer
+
+```bash
+cd backend
+source .venv/bin/activate
+python3 producer.py
+```
+
+### Terminal 4: Kafka Consumer (handles surge pricing)
+
+```bash
+cd backend
+source .venv/bin/activate
+python3 consumer.py
+```
+
+Make purchases on the frontend and observe events logged by producer and consumer.
+
+---
+
+## 🔥 Spark Integration
+
+### Spark Setup by Shoaib
+
+```bash
+pip install -r requirements.txt
+```
+
+### Terminal 5: Spark Job (for streaming and surge logic)
+
+```bash
 spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.1 sparkconsumer.py
+```
 
-To run the spark job 
+---
+
+## 📈 Architecture Overview
+
+```plaintext
+[Frontend - React]
+       ↓ (purchase event)
+[FastAPI Backend] ──> [Kafka Producer]
+                            ↓
+                     [Kafka Broker]
+                            ↓
+               [Kafka Consumer] → Updates SQLite with surge prices
+                            ↓
+               [Spark Job] → Real-time stream analytics
+```
+
+---
 
 
-
-
---
