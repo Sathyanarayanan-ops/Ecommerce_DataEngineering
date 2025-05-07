@@ -164,3 +164,25 @@ spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.1 sparkco
 
 ```
 
+
+Some demo pictures 
+
+<img width="780" alt="Screenshot 2025-05-07 at 7 28 30 PM" src="https://github.com/user-attachments/assets/6bf06938-9729-482c-8c17-90505893ada2" />
+
+
+Kafka sending data from DB to spark
+<img width="681" alt="Screenshot 2025-05-07 at 7 28 52 PM" src="https://github.com/user-attachments/assets/6f1ddd4a-cced-412a-9fda-c874573005bd" />
+
+
+Spark data Processing 
+
+
+<img width="780" alt="Screenshot 2025-05-07 at 7 28 30 PM" src="https://github.com/user-attachments/assets/b1287969-3183-4715-9e84-7d22d1956d0d" />
+
+
+Surge detection and price hike 
+
+
+
+
+
