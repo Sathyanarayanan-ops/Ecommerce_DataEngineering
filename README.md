@@ -182,6 +182,17 @@ Spark data Processing
 
 Surge detection and price hike 
 
+<img width="386" alt="Screenshot 2025-05-07 at 7 33 26 PM" src="https://github.com/user-attachments/assets/58f8795e-0fa8-42c8-93c7-c8d2e7ab623b" />
+
+
+Sqlite table before and after price hike 
+
+
+<img width="398" alt="Screenshot 2025-05-07 at 7 33 32 PM" src="https://github.com/user-attachments/assets/fdad9a55-82dd-4593-971f-9e81741a273d" />
+
+
+
+
 
 
 
